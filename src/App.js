@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import './App.css';
 import { AuthContext } from './context/auth/AuthContext';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Signup from './component/signup/signup';
 import Login from './component/login/login';
 import Home from './component/home/Home';

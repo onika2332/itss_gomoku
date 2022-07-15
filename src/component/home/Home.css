@@ -1,0 +1,21 @@
+.home-page {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+  cursor: pointer;
+  background-color: purple;
+  color: white;
+  height: 30px;
+  width: 150px;
+}
+
+button:hover {
+  background-color: beige;
+  color: purple;
+}

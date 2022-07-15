@@ -4,6 +4,7 @@ import { auth } from "../../firebase"
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth/AuthContext';
+import md5 from 'md5';
 
 function Login() {
 
@@ -23,7 +24,7 @@ function Login() {
                     type: "LOGIN",
                     payload: user
                 });
-                console.log(user);
+                localStorage.setItem("userId", user.uid);
                 navigate('/home');
             })
             .catch((err) => {

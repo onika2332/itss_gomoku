@@ -1,10 +1,11 @@
 import React from 'react'
 import './signup.css'
-import { auth } from '../../firebase'
+import { auth, db } from '../../firebase'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../context/auth/AuthContext'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
+import { doc, setDoc } from "firebase/firestore"
+import md5 from 'md5'
 
 function Signup() {
     const [error, setError] = useState(false);
@@ -18,12 +19,27 @@ function Signup() {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                console.log(user);
+                handleAddData(user.uid);
                 alert("Signup new account successfully");
                 navigate('/');
             })
             .catch((err) => {
                 setError(true);
             });
+    }
+
+    const handleAddData = async (email) => {
+        try {
+            await setDoc(doc(db, "user", email), {
+                nickname: email,
+                win_game: 0,
+                total_game: 0,
+                image: ""
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
     return (
         <div className='signup'>
