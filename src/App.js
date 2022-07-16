@@ -6,6 +6,8 @@ import Signup from './component/signup/signup';
 import Login from './component/login/login';
 import Home from './component/home/Home';
 import ErrorPage from './component/ErrorPage';
+import Board from './component/game/board/Board';
+import { BoardContextProvider } from './context/gameboard/BoardContext';
 
 function App() {
   const { curUser } = useContext(AuthContext);
@@ -23,6 +25,12 @@ function App() {
             <Route path='home' element={<Home />} /> :
             <Route path='/' element={<Login />} />
         }
+
+        <Route path='/gameplay' element={
+          <BoardContextProvider>
+            <Board />
+          </BoardContextProvider>
+        } />
       </Routes>
     </div>
 

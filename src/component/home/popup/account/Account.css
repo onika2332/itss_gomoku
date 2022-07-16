@@ -1,0 +1,33 @@
+.overlay {
+  background-color: rgba(49, 49, 49, 0.8);
+  height: 100vh;
+  width: 200vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+.modal-content {
+  background-color: white;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form input {
+  margin: 10px;
+  width: 200px;
+}

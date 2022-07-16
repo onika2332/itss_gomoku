@@ -1,0 +1,12 @@
+.grid-item {
+  cursor: pointer;
+  background-color: rgba(204, 204, 204, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 3px;
+}
+.grid-item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
