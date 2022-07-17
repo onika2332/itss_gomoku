@@ -21,7 +21,7 @@ function Home() {
             <h3>Home</h3>
 
             <button onClick={() => navigate('/gameplay')}>Play</button>
-            <button>Read instruction</button>
+            <button onClick={() => navigate('/instruction')}>Read instruction</button>
             <button>Ranking</button>
             <button>Settings</button>
             <Account />

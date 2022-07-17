@@ -8,6 +8,7 @@ import Home from './component/home/Home';
 import ErrorPage from './component/ErrorPage';
 import Board from './component/game/board/Board';
 import { BoardContextProvider } from './context/gameboard/BoardContext';
+import Instruction from './component/instruction/Instruction';
 
 function App() {
   const { curUser } = useContext(AuthContext);
@@ -31,6 +32,11 @@ function App() {
             <Board />
           </BoardContextProvider>
         } />
+
+        <Route path='/instruction' element={
+          <Instruction />
+        } />
+        
       </Routes>
     </div>
 
