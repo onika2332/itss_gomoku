@@ -28,13 +28,14 @@ function Signup() {
             });
     }
 
-    const handleAddData = async (email) => {
+    const handleAddData = async (id) => {
         try {
-            await setDoc(doc(db, "user", email), {
-                nickname: email,
+            await setDoc(doc(db, "user", id), {
+                nickname: id,
                 win_game: 0,
                 total_game: 0,
-                image: ""
+                image: "",
+                isAdmin: false
             })
         } catch (err) {
             console.log(err);

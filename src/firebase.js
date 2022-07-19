@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -17,3 +17,14 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 export const auth = getAuth();
 export const storage = getStorage(app);
+
+export const getData = async (dataId) => {
+    let docRef = doc(db, "user", dataId);
+    let docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        let data = await docSnap.data();
+        return data;
+    } else {
+        return null;
+    }
+}

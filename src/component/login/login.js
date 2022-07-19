@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './login.css'
-import { auth } from "../../firebase"
+import { auth, getData } from "../../firebase"
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth/AuthContext';
@@ -19,16 +19,33 @@ function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+
                 dispatch({
                     type: "LOGIN",
                     payload: user
                 });
+
                 localStorage.setItem("userId", user.uid);
-                navigate('/home');
-            })
+                getData(user.uid)
+                    .then(data => {
+                        localStorage.setItem("isAdmin", data.isAdmin);
+                        if (!data.isAdmin) {
+                            navigate('/home');
+                        }
+                        else {
+                            navigate('/user-list');
+                        }
+                    })
+                    .catch(
+                        err => console.log(err)
+                    )
+            }
+            )
             .catch((err) => {
                 setError(true);
-            });
+                console.log(err);
+            }
+            );
     }
     return (
         <div className='login'>
