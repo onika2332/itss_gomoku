@@ -9,3 +9,9 @@
   top: 80px;
   left: 25%;
 }
+
+.game-master {
+  position: absolute;
+  top: 10px;
+  left: 45%;
+}

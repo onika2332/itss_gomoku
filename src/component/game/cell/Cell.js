@@ -1,51 +1,30 @@
-import React, { useContext, useState } from 'react';
-import { BoardContext } from '../../../context/gameboard/BoardContext';
-import { editBoard } from '../../../context/gameboard/BoardReducer';
-import { checkColumn, checkLRDiagonal, checkRLDiagonal, checkRow } from '../../../context/gameboard/checkWinner';
+import { check, edit, turn } from '../../../store/boardSlice';
 import "./Cell.css";
+import { useDispatch } from 'react-redux'
 
+/**
+ * Hiện tại, các components "Cell" nếu sử dụng useContext sẽ khiến devtools gây ra lỗi lúc runtime,
+ * cụ thể là k inpect được các "Cell" này, do đó quá trình phát hiện gây ra tốn thời gian --> timeout
+ * Giải pháp : Tạo Redux store, cung cấp state cho các component "Board" và "Cell"
+ */
 
-function Cell({ x, y }) {
-    const { board, player, dispatch } = useContext(BoardContext);
-    const [value, setValue] = useState("");
+function Cell({ x, y, value }) {
+    const dispatch = useDispatch();
 
     const toggleCell = (e) => {
-        // haven't value yet
-        if (value === "") {
-            setValue(player ? "x" : "o");
-
-            dispatch({
-                type: "EDIT",
-                payload: {
-                    board: editBoard(board, x, y, player)
-                }
-            });
-
-
-            if (checkRow(x, y, board) ||
-                checkColumn(x, y, board) ||
-                checkLRDiagonal(x, y, board) ||
-                checkRLDiagonal(x, y, board)
-            ) { // have a winner
-                setTimeout(() => {
-                    player ?
-                        alert("You are winner") :
-                        alert("You are looser");
-                }, 100);
-
-                dispatch({
-                    type: "RESTART"
-                });
-            }
-
-            dispatch({
-                type: "SWITCH",
-                payload: !player
-            });
+        if (value === -1) { // havent clicked
+            dispatch(edit({ x: x, y: y })) // click --> thay đổi nội dung của ô, đống thời update ngay state
+            dispatch(check({ x: x, y: y })) // check winner
+            dispatch(turn())
         }
     }
+
     return (
-        <div className="grid-item" onClick={toggleCell}>{value}</div>
+        <div className="grid-item" onClick={toggleCell}>
+            {
+                value === -1 ? "" : (value === 0 ? "O" : "X")
+            }
+        </div>
     )
 }
 

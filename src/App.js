@@ -7,10 +7,15 @@ import Login from './component/login/login';
 import Home from './component/home/Home';
 import ErrorPage from './component/ErrorPage';
 import Board from './component/game/board/Board';
+<<<<<<< HEAD
 import { BoardContextProvider } from './context/gameboard/BoardContext';
 import Instruction from './component/instruction/Instruction';
 import Achievement from './component/achievement/Achievement';
 import UserList from './component/user/UserList';
+=======
+import { Provider } from 'react-redux'
+import { store } from './store/store';
+>>>>>>> add_realtime_db
 
 function App() {
   const { curUser } = useContext(AuthContext);
@@ -30,9 +35,9 @@ function App() {
         }
 
         <Route path='/gameplay' element={
-          <BoardContextProvider>
+          <Provider store={store}>
             <Board />
-          </BoardContextProvider>
+          </Provider>
         } />
 
         <Route path='/instruction' element={
