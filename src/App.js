@@ -9,6 +9,8 @@ import ErrorPage from './component/ErrorPage';
 import Board from './component/game/board/Board';
 import { Provider } from 'react-redux'
 import { store } from './store/store';
+import Instruction from './component/instruction/Instruction';
+import UserList from './component/user/UserList'
 
 function App() {
   const { curUser } = useContext(AuthContext);
