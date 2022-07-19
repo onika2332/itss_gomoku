@@ -7,7 +7,8 @@ import Login from './component/login/login';
 import Home from './component/home/Home';
 import ErrorPage from './component/ErrorPage';
 import Board from './component/game/board/Board';
-import { BoardContextProvider } from './context/gameboard/BoardContext';
+import { Provider } from 'react-redux'
+import { store } from './store/store';
 
 function App() {
   const { curUser } = useContext(AuthContext);
@@ -27,9 +28,9 @@ function App() {
         }
 
         <Route path='/gameplay' element={
-          <BoardContextProvider>
+          <Provider store={store}>
             <Board />
-          </BoardContextProvider>
+          </Provider>
         } />
       </Routes>
     </div>

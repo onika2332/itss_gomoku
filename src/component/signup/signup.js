@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { doc, setDoc } from "firebase/firestore"
-import md5 from 'md5'
 
 function Signup() {
     const [error, setError] = useState(false);
