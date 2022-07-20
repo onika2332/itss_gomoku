@@ -1,7 +1,5 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar'
-import { db } from './../../firebase'
-import { collection } from 'firebase/firestore';
 
 
 export default function User(props) {
@@ -15,20 +13,21 @@ export default function User(props) {
   // }
 
   return (
-    <div>
-      {/* <button id={data.nickname} onClick={()=>deleteData(data.nickname)}>Xoa</button> */}
-      {/* Avatar */}
-      <Avatar src={data.image} alt="avatar"></Avatar>
-      {/* userName (nickname) */}
-      <h1>Name: {data.nickname}</h1>
-      {/* Total games */}
-      <h1>Total: {data.total_game}</h1>
-      {/* Win games */}
-      <h1>Win: {data.win_game}</h1>
-      {/* WinningRate */}
-      <h1>WinningRate: {data.total_game === 0 ? 0 : winningRate}%</h1>
-      <hr />
-    </div>
-
+    false === data.isAdmin ?
+      <div>
+        {/* <button id={data.nickname} onClick={()=>deleteData(data.nickname)}>Xoa</button> */}
+        {/* Avatar */}
+        <Avatar src={data.image} alt="avatar"></Avatar>
+        {/* userName (nickname) */}
+        <h4>Name: {data.nickname}</h4>
+        {/* Total games */}
+        <h4>Total: {data.total_game}</h4>
+        {/* Win games */}
+        <h4>Win: {data.win_game}</h4>
+        {/* WinningRate */}
+        <h4>WinningRate: {data.total_game === 0 ? 0 : winningRate}%</h4>
+        <hr />
+      </div>
+      : <h6>...</h6>
   )
 }
