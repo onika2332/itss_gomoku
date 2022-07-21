@@ -1,14 +1,13 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar'
-import { db } from './../../firebase'
+import { db } from './../../../firebase'
 import { useState, useEffect } from 'react'
 // import { getAuth } from 'firebase/auth';
 
 import { doc, getDoc } from "firebase/firestore";
 
-export default function Achievement() {
+export default function UserInfo() {
 	const [user, setUser] = useState(null);
-  const [winningRate, setWinningRate] = useState(0);
 
   var userId = localStorage.getItem("userId");
   console.log(userId)
@@ -41,15 +40,8 @@ export default function Achievement() {
 	}, []);
 
   useEffect(() => {
-    if (user)
-    {
-      console.log(user);
-
-      user.total_game==0? setWinningRate(0) : setWinningRate(user.win_game/user.total_game*100);
-    }
-
+    console.log(user);
   }, [user])
-
 
   return (
     <div>
@@ -60,9 +52,6 @@ export default function Achievement() {
                 <div>
                   <Avatar src={user.image} alt="avatar"></Avatar>
                   <h1>Name: {user.nickname}</h1>
-                  <h1>Total game: {user.total_game}</h1>
-                  <h1>Win game: {user.win_game}</h1>
-                  <h1>Winning Rate: {winningRate}%</h1>
                 </div>
               )
             }
