@@ -11,6 +11,7 @@ import { Provider } from 'react-redux'
 import { store } from './store/store';
 import Instruction from './component/instruction/Instruction';
 import UserList from './component/user/UserList'
+import Achievement from './component/achievement/Achievement';
 
 function App() {
   const { curUser } = useContext(AuthContext);
@@ -38,6 +39,11 @@ function App() {
         <Route path='/instruction' element={
           <Instruction />
         } />
+
+        <Route path='/achievement' element={
+          <Achievement />
+        } />
+
         <Route path='/user-list' element={
           <UserList />
         } />
