@@ -10,6 +10,7 @@ function Signup() {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [nickname, setNickname] = useState("");
 
     const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ function Signup() {
     const handleAddData = async (id) => {
         try {
             await setDoc(doc(db, "user", id), {
-                nickname: id,
+                nickname: nickname !== "" ? nickname : "NO NAME",
                 win_game: 0,
                 total_game: 0,
                 image: "",
@@ -56,6 +57,12 @@ function Signup() {
                         type='password'
                         placeholder='password'
                         onChange={e => setPassword(e.target.value)}
+                    />
+
+                    <input
+                        type='nickname'
+                        placeholder='Type nickname you want'
+                        onChange={e => setNickname(e.target.value)}
                     />
 
                     <button type='submit'>SIGNUP</button>
