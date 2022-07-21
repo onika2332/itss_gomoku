@@ -7,52 +7,34 @@ import { useState, useEffect } from 'react'
 import { doc, getDoc } from "firebase/firestore";
 
 export default function UserInfo() {
-	const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState(null);
   var userId = localStorage.getItem("userId");
-  console.log(userId)
 
   const getData = () => {
     const docRef = doc(db, "user", userId);
     getDoc(docRef).then(res => {
-      console.log(res.data)
       setUser({
         id: res.data().nickname,
         ...res.data()
       })
     });
-
-    // console.log(docSnap.data);
-
-    // setUser(
-    //   {
-    //     id: docSnap.data.nickname,
-    //     user: doc.data
-    //   }
-    // )
   }
 
   useEffect(() => {
-		// this is where the code runs
-		getData();
-
-	}, []);
+    // this is where the code runs
+    getData();
+  }, []);
 
   return (
     <div>
-        {/* Avatar */}
-            {
-              user && (
-                <div>
-                  <Avatar src={user.image} alt="avatar"></Avatar>
-                  <h1>{user.nickname}</h1>
-                </div>
-              )
-            }
-        
-        
-        
-    </div>    
+      {
+        user && (
+          <div>
+            <Avatar src={user.image} alt="avatar"></Avatar>
+            <h1>{user.nickname}</h1>
+          </div>
+        )
+      }
+    </div>
   )
-
 }

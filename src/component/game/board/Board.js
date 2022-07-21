@@ -1,12 +1,11 @@
 import md5 from 'md5';
-import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Cell from '../cell/Cell'
 import GameMaster from '../master/GameMaster';
 import UserInfo from '../userInfo/UserInfo';
-import "./Board.css"
 
+import "./Board.css"
 
 function Board() {
     const navigate = useNavigate();
@@ -20,8 +19,8 @@ function Board() {
             </div>
             {/* user info */}
             <div>
-                <UserInfo />    
-            </div> 
+                <UserInfo />
+            </div>
             {/* exit */}
             <button className="exit-btn" onClick={() => navigate('/home')}>EXIT</button>
             {/* game board */}

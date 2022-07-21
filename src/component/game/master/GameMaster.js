@@ -11,10 +11,10 @@ function GameMaster() {
         <div className='game-master'>
             {
                 winner === -1 ?
-                    "Now, your turn" :
+                    "あなたの番です。" :
                     (winner === 0 ?
-                        "You loose. Try again?" :
-                        "You win. Want to play more?"
+                        "あなたの負けです。" :
+                        "あなたの勝ちです。"
                     )
             }
         </div>
