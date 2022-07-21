@@ -59,10 +59,10 @@ export default function Achievement() {
               user && (
                 <div>
                   <Avatar src={user.image} alt="avatar"></Avatar>
-                  <h1>Name: {user.nickname}</h1>
-                  <h1>Total game: {user.total_game}</h1>
-                  <h1>Win game: {user.win_game}</h1>
-                  <h1>Winning Rate: {winningRate}%</h1>
+                  <h1>名前: {user.nickname}</h1>
+                  <h1>ゲーム数: {user.total_game}</h1>
+                  <h1>勝ち数: {user.win_game}</h1>
+                  <h1>勝ち率: {winningRate}%</h1>
                 </div>
               )
             }

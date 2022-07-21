@@ -37,27 +37,27 @@ function Account() {
                 onClick={toggleModal}
                 className="btn-modal"
             >
-                Manage account
+                アカウント設定
             </button>
             {open && (
                 <div className="modal">
                     <div className="overlay"></div>
                     <div className="modal-content">
-                        <h3>Manage account</h3>
+                        <h3>アカウント設定</h3>
                         <form>
                             <input
                                 type="password"
-                                placeholder="old password"
+                                placeholder="現在のパスワード"
                                 onChange={(e) => setOldPwd(e.target.value)}
                             />
                             <input
                                 type="password"
-                                placeholder="new password"
+                                placeholder="新しいパスワード"
                                 onChange={(e) => setNewPwd(e.target.value)}
                             />
                             <input
                                 type="password"
-                                placeholder="confirm password"
+                                placeholder="新しいパスワード（確認用）"
                                 onChange={(e) => setConfirmPwd(e.target.value)}
                             />
 
@@ -65,14 +65,14 @@ function Account() {
                                 <button
                                     className="submit-btn"
                                 >
-                                    SUBMIT
+                                    保存
                                 </button>
 
                                 <button
                                     className="cancel-btn"
                                     onClick={toggleModal}
                                 >
-                                    CANCEL
+                                    キャンセル
                                 </button>
                             </div>
                         </form>

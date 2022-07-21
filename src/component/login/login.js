@@ -54,32 +54,32 @@ function Login() {
                 <form onSubmit={handleLogin}>
                     <input
                         type='email'
-                        placeholder='email'
+                        placeholder='メールアドレス'
                         onChange={e => setEmail(e.target.value)}
                     />
 
                     <input
                         type='password'
-                        placeholder='password'
+                        placeholder='パスワード'
                         onChange={e => setPassword(e.target.value)}
                     />
 
-                    <button type='submit'>LOGIN</button>
+                    <button type='submit'>ログイン</button>
                 </form>
 
-                {error && <span>Wrong email or password</span>}
+                {error && <span>メールアドレスまたはパスワードが正しくありません。</span>}
 
                 <span
                     className='gg-signin'
                 >
-                    Login with Google Account
+                    グーグルアカウントでログイン
                 </span>
-
+                <hr />
                 <span
                     className='sign-up'
                     onClick={() => navigate('/signup')}
                 >
-                    Haven't an account? Signup
+                    登録
                 </span>
             </div>
         </div>

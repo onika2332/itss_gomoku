@@ -21,16 +21,16 @@ function Home() {
         <div className='home-page'>
             <h3>Home</h3>
 
-            <button onClick={() => navigate('/gameplay')}>Play</button>
-            <button onClick={() => navigate('/instruction')}>Read instruction</button>
-            <button onClick={() => navigate('/achievement')}>Achievement</button>
+            <button onClick={() => navigate('/gameplay')}>プレー</button>
+            <button onClick={() => navigate('/instruction')}>案内</button>
+            <button onClick={() => navigate('/achievement')}>成績</button>
             {
                 localStorage.getItem("isAdmin") === true
-                && <button onClick={() => navigate('/user-list')}>Users List</button>
+                && <button onClick={() => navigate('/user-list')}>ユーザ一覧</button>
             }
-            <button>Settings</button>
+            <button>設定</button>
             <Account />
-            <button onClick={handleSignout}>SIGNOUT</button>
+            <button onClick={handleSignout}>ログアウト</button>
 
         </div>
     )

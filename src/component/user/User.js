@@ -18,13 +18,13 @@ export default function User(props) {
         {/* Avatar */}
         <Avatar src={data.image} alt="avatar"></Avatar>
         {/* userName (nickname) */}
-        <h4>Name: {data.nickname}</h4>
+        <h4>名前: {data.nickname}</h4>
         {/* Total games */}
-        <h4>Total: {data.total_game}</h4>
+        <h4>ゲーム数: {data.total_game}</h4>
         {/* Win games */}
-        <h4>Win: {data.win_game}</h4>
+        <h4>勝ち数: {data.win_game}</h4>
         {/* WinningRate */}
-        <h4>WinningRate: {data.total_game === 0 ? 0 : winningRate}%</h4>
+        <h4>勝ち率: {data.total_game === 0 ? 0 : winningRate}%</h4>
         <hr />
       </div>
       : <h6>...</h6>

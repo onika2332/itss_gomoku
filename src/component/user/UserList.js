@@ -41,10 +41,10 @@ export default function UserList() {
 
     return (
         <div>
-            <h2>User list</h2>
+            <h2>ユーザ一覧</h2>
             <input
                 type="text"
-                placeholder='Search user...'
+                placeholder='検索'
                 onChange={handleSearch}
             />
             {

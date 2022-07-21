@@ -36,22 +36,16 @@ export default function UserInfo() {
 		// this is where the code runs
 		getData();
 
-    return () => console.log(user);
 	}, []);
-
-  useEffect(() => {
-    console.log(user);
-  }, [user])
 
   return (
     <div>
         {/* Avatar */}
-        
             {
               user && (
                 <div>
                   <Avatar src={user.image} alt="avatar"></Avatar>
-                  <h1>Name: {user.nickname}</h1>
+                  <h1>{user.nickname}</h1>
                 </div>
               )
             }
