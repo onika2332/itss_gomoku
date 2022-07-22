@@ -49,12 +49,11 @@ export default function Achievement() {
     }
 
   }, [user])
-
-
+  
   return (
     <div>
         {/* Avatar */}
-        
+
             {
               user && (
                 <div>
@@ -66,10 +65,4 @@ export default function Achievement() {
                 </div>
               )
             }
-        
-        
-        
-    </div>    
-  )
-
-}
+    </div> 
